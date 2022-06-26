@@ -1,0 +1,12 @@
+.active {
+  display: flex;
+  flex-direction: column;
+  /* color: red !important; */
+}
+
+.active span {
+  color: #ffcccc !important;
+}
+.active div {
+  color: #ffb8b8 !important;
+}
