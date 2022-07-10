@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import Judgement from "./Pages/Judgement";
 import Header from "./Componets/Header";
 import {
@@ -12,23 +11,26 @@ import LawGernal from "./Pages/LawGernal";
 import Elab from "./Pages/Elab";
 import Mcqs from "./Pages/Mcqs";
 import Books from "./Pages/Books";
+import Login from "./Pages/Login";
+import PushPdf from "./Pages/PushPdf";
+
 function App() {
   return (
     <Router>
       <Header />
       <Routes>
-        <Route path="/" element={<Navigate to="/judgement" />} />
-        <Route path="/judgement" element={<Judgement />} />
-        <Route path="/articles" element={<Articles />} />
-        <Route path="/Elibrary" element={<Elab />} />
-        <Route path="/lawgernal" element={<LawGernal />} />
-        <Route path="/mcqs" element={<Mcqs />} />
-        <Route path="/books" element={<Books />} />
+        <Route exact path="/" element={<Navigate to="/judgement" />} />
+        <Route exact path="/judgement" element={<Judgement />} />
+        <Route exact path="/articles" element={<Articles />} />
+        <Route exact path="/Elibrary" element={<Elab />} />
+        <Route exact path="/lawgernal" element={<LawGernal />} />
+        <Route exact path="/mcqs" element={<Mcqs />} />
+        <Route exact path="/books" element={<Books />} />
+        <Route exact path="/login" element={<Login />} />
+        <Route exact path="/addData" element={<PushPdf />} />
       </Routes>
     </Router>
   );
 }
 
-const Container = styled.div``;
-const Content = styled.div``;
 export default App;

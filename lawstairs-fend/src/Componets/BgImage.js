@@ -3,14 +3,14 @@ import styled from "styled-components";
 import React from "react";
 
 export default function BgImage(props) {
-  const fi = "fixed";
   return <Container image={props.image}></Container>;
 }
 
 const Container = styled.div`
-  position: relative;
-  height: 100vh;
-  width: 100%;
+  /* position: relative; */
+  /* height: 100vh; */
+  /* inset: 0px; */
+  /* width: 100%; */
 
   overflow: hidden;
   &::before {
@@ -22,7 +22,7 @@ const Container = styled.div`
     content: "";
     position: absolute;
     inset: 0;
-    top: 80px;
+    top: 0px;
     opacity: 0.8;
     z-index: -4;
   }

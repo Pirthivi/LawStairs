@@ -1,20 +1,24 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import BalanceIcon from "@mui/icons-material/Balance";
-import { Link, NavLink, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 import ArticleIcon from "@mui/icons-material/Article";
 import LibraryBooksIcon from "@mui/icons-material/LibraryBooks";
 import QuizIcon from "@mui/icons-material/Quiz";
 import GaveNavBarLicon from "@mui/icons-material/Gavel";
 import "./Header.css";
 export default function Header() {
+  const Navigate = useNavigate();
+  const handleClick = () => {
+    localStorage.removeItem("user1");
+    Navigate("/login");
+  };
   return (
     <Container>
       <Section>
         <Logo>
-          <img src="/images/lawlogo.png" alt="Logo" />
+          <img src="/images/lawlogo.jpg" alt="Logo" />
         </Logo>
-
         <NavBar>
           <NavBarLi to="/judgement">
             <div>
@@ -22,7 +26,6 @@ export default function Header() {
             </div>
             <span>Jadgement</span>
           </NavBarLi>
-
           <NavBarLi to="/articles">
             <div>
               <ArticleIcon />
@@ -51,7 +54,7 @@ export default function Header() {
             <span>MCQ</span>
           </NavBarLi>
 
-          <NavBarLi to="/books" ac>
+          <NavBarLi to="/books">
             <div>
               <QuizIcon />
             </div>
@@ -59,13 +62,21 @@ export default function Header() {
           </NavBarLi>
         </NavBar>
       </Section>
-      <Button>Sign In</Button>
+      {/* <Link to="/login"> */}
+      <Button
+        onClick={() => {
+          localStorage.getItem("user1") ? handleClick() : Navigate("/login");
+        }}
+      >
+        {localStorage.getItem("user1") ? "Logout" : "Login"}
+      </Button>
+      {/* </Link> */}
     </Container>
   );
 }
 
 const Container = styled.div`
-  background-color: rgba(30, 10, 20, 1);
+  background-color: rgba(0, 0, 10, 0.9);
   display: flex;
   justify-content: space-between;
   position: fixed;
@@ -84,7 +95,7 @@ const NavBarLi = styled(NavLink)`
   align-items: center;
   font-weight: 600;
   align-items: center;
-  /* background-color: ${(props) => console.log(props)}; */
+
   padding: 5px;
   text-decoration: none;
   &:hover {
@@ -132,8 +143,10 @@ const NavBar = styled.nav`
 
 const Logo = styled.div`
   img {
-    width: 80px;
-    object-fit: contain;
+    /* position: absolute; */
+    /* background-color: green; */
+    width: 100px;
+    height: contain;
   }
 `;
 
