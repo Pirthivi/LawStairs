@@ -29,6 +29,15 @@ mongoose
 app.get("/", (req, res) => {
   res.status(200).send("hellllo world");
 });
+// send username & pass
+
+app.post("/v3", (req, res) => {
+  const user = new userSchema({
+    username: "pardeep",
+    password: 112233,
+  });
+  user.save();
+});
 // Post File Info to database
 app.post("/v4", async (req, res) => {
   const data = await File.findOne({ fileName: req.body.fileName });
