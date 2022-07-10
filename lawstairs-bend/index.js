@@ -26,7 +26,9 @@ mongoose
   });
 
 // API END POINTS
-
+app.get("/", (req, res) => {
+  res.status(200).send("hellllo world");
+});
 // Post File Info to database
 app.post("/v4", async (req, res) => {
   const data = await File.findOne({ fileName: req.body.fileName });
@@ -60,6 +62,7 @@ app.get("/v4", async (req, res) => {
     res.send(400).send("Some think went wrong");
   }
 });
+
 // Access to login User
 app.post("/v3", async (req, res) => {
   const user = await userSchema.findOne({ username: req.body.username });
