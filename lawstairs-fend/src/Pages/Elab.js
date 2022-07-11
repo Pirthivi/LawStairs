@@ -9,7 +9,7 @@ const Elab = (props) => {
   useEffect(() => {
     let data3 = [];
     const fetchData = async () => {
-      let data2 = await fetch("http://localhost:9000/v4")
+      let data2 = await fetch("https://lawstairs.herokuapp.com/v4")
         .then((response) => response.json())
         .then((result) => result);
 

@@ -21,7 +21,7 @@ const Fetchpdf = (props) => {
     let uploadfile = await getDownloadURL(pdfFileRef).then((Url) => Url);
 
     if (uploadfile !== "" && typeof uploadfile) {
-      fetch("http://localhost:9000/v4", {
+      fetch("https://lawstairs.herokuapp.com/v4", {
         method: "POST",
         headers: { "Content-type": "application/json" },
         body: JSON.stringify({

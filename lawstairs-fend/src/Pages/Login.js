@@ -13,7 +13,7 @@ export default function Login() {
 
     let user = await login;
 
-    response = await fetch("http://localhost:9000/v3", {
+    response = await fetch("https://lawstairs.herokuapp.com/v3", {
       method: "POST",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify({
@@ -29,11 +29,6 @@ export default function Login() {
 
       history("/addData");
     } else alert(response);
-    //   console.log(login);
-    //   if (login.username) {
-    //   } else {
-    //     console.log(localStorage.getItem("user1"));
-    //   }
   };
   return (
     <Container>
