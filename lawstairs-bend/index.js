@@ -34,12 +34,10 @@ app.get("/", (req, res) => {
 app.post("/v4", async (req, res) => {
   const data = await File.findOne({ fileName: req.body.fileName });
   if (data) {
-    console.log(data);
     res.status(400).send({
       message: `This File Already exists in Databbase 
       `,
     });
-    return;
   } else {
     const file = await new File(req.body);
     try {
